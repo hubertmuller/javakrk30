@@ -7,6 +7,8 @@ import { NaglowekComponent } from './naglowek/naglowek.component';
 import { StopkaComponent } from './stopka/stopka.component';
 import { DodajComponent } from './dodaj/dodaj.component';
 import { ListaComponent } from './lista/lista.component';
+import { BladComponent } from './blad/blad.component';
+import { NawigacjaComponent } from './nawigacja/nawigacja.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ListaComponent } from './lista/lista.component';
     NaglowekComponent,
     StopkaComponent,
     DodajComponent,
-    ListaComponent
+    ListaComponent,
+    BladComponent,
+    NawigacjaComponent
   ],
   imports: [
     BrowserModule,
