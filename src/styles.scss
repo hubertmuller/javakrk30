@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'settings.scss';
+
+* {
+    box-sizing: border-box;
+    font-size: $rozmiar-domyslny;
+    @include margines;
+}
+
+p {
+    font-size: $rozmiar-domyslny*2;
+    color: $kolor-czerwony;
+}
+
+/*
+body > div p {
+    font-size: $rozmiar-domyslny*1.5;
+}
+
+body > div {
+    color: red;
+}
+
+body {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    > div {
+        color: red;
+        p {
+            font-size: $rozmiar-domyslny*1.5;
+        }
+    }
+}
+*/
