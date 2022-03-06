@@ -4,17 +4,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NaglowekComponent } from './naglowek/naglowek.component';
+import { StopkaComponent } from './stopka/stopka.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NaglowekComponent
+    NaglowekComponent,
+    StopkaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+    NaglowekComponent,
+    StopkaComponent
+  ]
 })
-export class AppModule { }
+export class AppModule { 
+
+}
