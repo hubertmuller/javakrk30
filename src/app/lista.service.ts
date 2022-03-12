@@ -17,4 +17,12 @@ export class ListaService {
       headers: myHeaders
     });
   }
+
+  deleteCzlowiek(id: number): Observable<any> {
+    const myHeaders = new HttpHeaders();
+    myHeaders.append('Accept', 'application/json');
+    return this.http.delete<any>('http://localhost:3200/czlowiek/'+id, {
+      headers: myHeaders
+    });
+  }
 }

@@ -32,6 +32,17 @@ const server =  http.createServer(
                 }
             ]
             `);
+        } else if (req.method === 'DELETE' && req.url.startsWith('/czlowiek/')) {
+            console.log('zapytanie o usuniecie czlowieka');
+            res.setHeader('Content-type', 'application/json');
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.statusCode = 200;
+            res.end(``);
+        } else if (req.method === 'OPTIONS') {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+            res.statusCode = 200;
+            res.end(``);
         } else {
             res.statusCode = 404;
             console.log('Nieznane zapytanie');
