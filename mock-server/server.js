@@ -32,6 +32,31 @@ const server =  http.createServer(
                 }
             ]
             `);
+        } else if (req.method === 'GET' && req.url.startsWith('/czlowiek/')) {
+            res.setHeader('Content-type', 'application/json');
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.statusCode = 200;
+            res.end(`
+            {
+                "id": 18,
+                "imie": "Józefa",
+                "nazwisko" : "Glinska",
+                "wiek": 18,
+                "plec": "k"
+            }
+            `);
+        } else if (req.method === 'POST' && req.url ==='/czlowiek') {
+            console.log('zapytanie o dodanie czlowieka');
+            res.setHeader('Content-type', 'application/json');
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.statusCode = 200;
+            res.end(``);
+        } else if (req.method === 'PUT' && req.url.startsWith('/czlowiek/')) {
+            console.log('zapytanie o aktualizacje czlowieka');
+            res.setHeader('Content-type', 'application/json');
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.statusCode = 200;
+            res.end(``);
         } else if (req.method === 'DELETE' && req.url.startsWith('/czlowiek/')) {
             console.log('zapytanie o usuniecie czlowieka');
             res.setHeader('Content-type', 'application/json');

@@ -1,0 +1,34 @@
+a + a {
+    margin-left: 10px;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tr, td, th {
+    border: 1px solid black;
+}
+
+th {
+    background-color: rgb(255, 132, 132);
+}
+
+tr:nth-child(2n) {
+    background-color: rgb(149, 241, 241);
+}
+
+tr:nth-child(2n+1) {
+    background-color: rgb(118, 168, 211);
+}
+
+tr:hover {
+    background-color: rgb(247, 255, 170);
+}
