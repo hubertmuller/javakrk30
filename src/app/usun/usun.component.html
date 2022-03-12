@@ -1,1 +1,7 @@
-<p>usun works!</p>
+
+
+<div *ngIf="!zaladowano && !blad">Usuwanie osoby o id={{toDelete}} w toku...</div>
+
+<div *ngIf="zaladowano">Udało się usunąć osobe o id={{toDelete}}</div>
+
+<div *ngIf="blad">Nie udało się usunąć osoby o id={{toDelete}}</div>
