@@ -1,1 +1,20 @@
-<p>lista works!</p>
+<table>
+    <tr>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th>Wiek</th>
+        <th>Plec</th>
+        <th>Operacje</th>
+    </tr>
+    <tr *ngFor="let element of lista">
+        <td>{{element.imie}}</td>
+        <td>{{element.nazwisko}}</td>
+        <td>{{element.wiek}}</td>
+        <td>{{element.plec}}</td>
+        <td>
+            <a href="">usuń</a> 
+            <a href="">edytuj</a>
+        </td>
+    </tr>
+    
+</table>

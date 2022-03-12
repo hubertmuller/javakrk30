@@ -9,6 +9,8 @@ import { DodajComponent } from './dodaj/dodaj.component';
 import { ListaComponent } from './lista/lista.component';
 import { BladComponent } from './blad/blad.component';
 import { NawigacjaComponent } from './nawigacja/nawigacja.component';
+import { UsunComponent } from './usun/usun.component';
+import { EdytujComponent } from './edytuj/edytuj.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { NawigacjaComponent } from './nawigacja/nawigacja.component';
     DodajComponent,
     ListaComponent,
     BladComponent,
-    NawigacjaComponent
+    NawigacjaComponent,
+    UsunComponent,
+    EdytujComponent
   ],
   imports: [
     BrowserModule,
