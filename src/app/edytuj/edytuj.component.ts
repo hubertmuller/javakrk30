@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edytuj',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EdytujComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { 
+
+    this.route.params.subscribe( (params) => {
+      const toEdit = params['id'];
+      //servis Lista i jego metoda edit
+      console.log('chcemy edytowac id=' + toEdit);
+    });
+  }
 
   ngOnInit(): void {
   }

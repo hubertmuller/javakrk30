@@ -1,4 +1,13 @@
-<table>
+
+<div *ngIf="!zaladowano && !blad">
+    Ładuje dane...
+</div>
+
+<div *ngIf="blad">
+    Nie mogłem załadować danych. Błąd serwera.
+</div>
+
+<table *ngIf="zaladowano">
     <tr>
         <th>Imie</th>
         <th>Nazwisko</th>
