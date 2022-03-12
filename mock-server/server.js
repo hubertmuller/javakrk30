@@ -5,6 +5,7 @@ const server =  http.createServer(
         if (req.method === 'GET' && req.url === '/lista') {
             console.log('przyszlo GET o /lista');
             res.setHeader('Content-type', 'application/json');
+            res.setHeader('Access-Control-Allow-Origin', '*');
             res.statusCode = 200;
             res.end(`
             [

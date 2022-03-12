@@ -12,7 +12,11 @@ export class ListaComponent implements OnInit {
   public lista: Czlowiek[] = [];
 
   constructor(private listaService: ListaService) { 
-    this.lista = listaService.getLudzie();
+    listaService.getLudzie().subscribe(
+      (ludzie) => {
+        this.lista = ludzie;
+      }
+    );
   }
 
   ngOnInit(): void {

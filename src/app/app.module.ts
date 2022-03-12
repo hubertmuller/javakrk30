@@ -11,6 +11,7 @@ import { BladComponent } from './blad/blad.component';
 import { NawigacjaComponent } from './nawigacja/nawigacja.component';
 import { UsunComponent } from './usun/usun.component';
 import { EdytujComponent } from './edytuj/edytuj.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EdytujComponent } from './edytuj/edytuj.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [
