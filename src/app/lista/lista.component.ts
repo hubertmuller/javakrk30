@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Czlowiek } from '../interface/czlowiek';
+import { ListaService } from '../lista.service';
 
 @Component({
   selector: 'app-lista',
@@ -7,21 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaComponent implements OnInit {
 
-  public lista = [
-  {
-    imie: "Adam",
-    nazwisko: "Kowalski",
-    wiek: 50,
-    plec: "m"
-  },
-  {
-    imie: "Anna",
-    nazwisko: "Nowak",
-    wiek: 55,
-    plec: "k"
-  }];
+  public lista: Czlowiek[] = [];
 
-  constructor() { }
+  constructor(private listaService: ListaService) { 
+    this.lista = listaService.getLudzie();
+  }
 
   ngOnInit(): void {
     /** */

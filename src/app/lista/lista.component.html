@@ -12,8 +12,8 @@
         <td>{{element.wiek}}</td>
         <td>{{element.plec}}</td>
         <td>
-            <a href="">usuń</a> 
-            <a href="">edytuj</a>
+            <a [routerLink]="['/usun', element.id]">usuń</a> 
+            <a [routerLink]="['/edytuj', element.id]">edytuj</a>
         </td>
     </tr>
     
