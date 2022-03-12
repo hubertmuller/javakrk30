@@ -4,18 +4,32 @@ tsc <nazwa-pliku>
 */
 
 interface Stwor {
-    glos(): void;
+    glos(extraglos: string): void;
+    wiek: number;
+    imie: string;
 }
 
 class Zwierze implements Stwor {
 
-    constructor() {
-        console.log('urodziny zwierza');
+    public wiek = 5;
+    public imie: string;
+    private sekret = '';
+    private grozny = true;
+    public cokolwiek: any;
+
+
+    constructor(public param1: string) {
+        console.log('urodziny zwierza ' + param1);
+        this.wiek = 55;
+        this.imie = 'Azor';
+        this.cokolwiek = 5;
+        this.cokolwiek = 'uuu';
     }
 
-    glos() {
-        console.log('wydaje odglos');
+    public glos(extraglos: string): number {
+        console.log('wydaje odglos ' + extraglos);
+        return 56;
     }
 }
 
-let x = new Zwierze();
+let x = new Zwierze('Azor');
