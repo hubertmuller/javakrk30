@@ -10,6 +10,7 @@ export class ListaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    /** */
   }
 
 }
