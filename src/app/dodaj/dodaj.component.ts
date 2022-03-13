@@ -13,8 +13,8 @@ export class DodajComponent implements OnInit, OnDestroy {
 
   public forma: FormGroup = new FormGroup({
     imie: new FormControl('', {
-      validators: [Validators.minLength(2)],
-      updateOn: 'change'
+      validators: [Validators.minLength(2), Validators.maxLength(10), Validators.required],
+      updateOn: 'blur'
     }),
     nazwisko: new FormControl('', {
       validators: [Validators.minLength(3)],
@@ -46,7 +46,7 @@ export class DodajComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.imieSub.unsubscribe();
   }
-  
+
   rozpoznajPlec(imie: string): string {
     let plec = "";
     const i = imie.toLowerCase();
