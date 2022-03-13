@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Czlowiek } from './interface/czlowiek';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class ListaService {
   getLudzie(): Observable<Czlowiek[]> {
     const myHeaders = new HttpHeaders();
     myHeaders.append('Accept', 'application/json');
-    return this.http.get<Czlowiek[]>('http://localhost:3200/lista', {
+    return this.http.get<Czlowiek[]>(environment.endpointURL+'/lista', {
       headers: myHeaders
     });
   }
@@ -23,7 +24,7 @@ export class ListaService {
   deleteCzlowiek(id: number): Observable<any> {
     const myHeaders = new HttpHeaders();
     myHeaders.append('Accept', 'application/json');
-    return this.http.delete<any>('http://localhost:3200/czlowiek/'+id, {
+    return this.http.delete<any>(environment.endpointURL+'/czlowiek/'+id, {
       headers: myHeaders
     });
   }
@@ -31,7 +32,7 @@ export class ListaService {
   addCzlowiek(czlowiek: Czlowiek): Observable<any> {
     const myHeaders = new HttpHeaders();
     myHeaders.append('Accept', 'application/json');
-    return this.http.post<any>('http://localhost:3200/czlowiek', czlowiek, {
+    return this.http.post<any>(environment.endpointURL+'/czlowiek', czlowiek, {
       headers: myHeaders
     });
   }
