@@ -12,6 +12,7 @@ import { NawigacjaComponent } from './nawigacja/nawigacja.component';
 import { UsunComponent } from './usun/usun.component';
 import { EdytujComponent } from './edytuj/edytuj.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [
