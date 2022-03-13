@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ListaService } from '../lista.service';
+import { Czlowiek } from './../interface/czlowiek';
 
 @Component({
   selector: 'app-dodaj',
@@ -47,7 +48,16 @@ export class DodajComponent implements OnInit, OnDestroy {
     this.imieSub.unsubscribe();
   }
 
-  rozpoznajPlec(imie: string): string {
+  public wyslij(): void {
+    const czlowiek: Czlowiek = {imie: '', nazwisko: '', wiek: 0, plec: ""};
+    this.listaService.addCzlowiek(czlowiek).subscribe(
+      (_) => {
+        console.log("udalo sie zapisac");
+      }
+    );
+  }
+
+  private rozpoznajPlec(imie: string): string {
     let plec = "";
     const i = imie.toLowerCase();
     if (i === "adam") {

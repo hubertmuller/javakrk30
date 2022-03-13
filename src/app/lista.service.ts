@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class ListaService {
 
+
+
   constructor(private http: HttpClient) { }
 
   getLudzie(): Observable<Czlowiek[]> {
@@ -22,6 +24,14 @@ export class ListaService {
     const myHeaders = new HttpHeaders();
     myHeaders.append('Accept', 'application/json');
     return this.http.delete<any>('http://localhost:3200/czlowiek/'+id, {
+      headers: myHeaders
+    });
+  }
+
+  addCzlowiek(czlowiek: Czlowiek): Observable<any> {
+    const myHeaders = new HttpHeaders();
+    myHeaders.append('Accept', 'application/json');
+    return this.http.post<any>('http://localhost:3200/czlowiek', czlowiek, {
       headers: myHeaders
     });
   }

@@ -1,5 +1,5 @@
 export interface Czlowiek {
-    id: number;
+    id?: number;
     imie: string;
     nazwisko: string;
     wiek: number;
