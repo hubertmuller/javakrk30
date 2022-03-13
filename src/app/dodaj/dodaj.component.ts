@@ -18,7 +18,7 @@ export class DodajComponent implements OnInit, OnDestroy {
       updateOn: 'blur'
     }),
     nazwisko: new FormControl('', {
-      validators: [Validators.minLength(3)],
+      validators: [Validators.minLength(3), Validators.required],
       updateOn: 'change'
     }),
     plec: new FormControl('', {
@@ -26,7 +26,7 @@ export class DodajComponent implements OnInit, OnDestroy {
       updateOn: 'change'
     }),
     wiek: new FormControl('', {
-      validators: [Validators.min(0), Validators.max(150)],
+      validators: [Validators.min(0), Validators.max(150), Validators.required],
       updateOn: 'change'
     })
   });
@@ -49,10 +49,19 @@ export class DodajComponent implements OnInit, OnDestroy {
   }
 
   public wyslij(): void {
-    const czlowiek: Czlowiek = {imie: '', nazwisko: '', wiek: 0, plec: ""};
+    const forma = this.forma.controls;
+    const czlowiek: Czlowiek = {
+      imie: forma['imie'].value, 
+      nazwisko: forma['nazwisko'].value, 
+      wiek: forma['wiek'].value, 
+      plec: forma['plec'].value
+    };
     this.listaService.addCzlowiek(czlowiek).subscribe(
       (_) => {
         console.log("udalo sie zapisac");
+      },
+      (error) => {
+        console.log('zapis nieudany');
       }
     );
   }

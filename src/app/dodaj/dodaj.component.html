@@ -36,7 +36,7 @@
         <input formControlName="wiek" id="wiekid"> 
     </div>
 
-    <div>
+    <div *ngIf="forma.valid">
         <input type="button" (click)="wyslij()" value="Wyślij">
     </div>
 
