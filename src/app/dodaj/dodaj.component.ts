@@ -38,7 +38,7 @@ export class DodajComponent implements OnInit, OnDestroy {
   public zapisano = false;
   public zapisujemy = false;
 
-  constructor(private listaService: ListaService) { 
+  constructor(public listaService: ListaService) { 
 
     this.imieSub = this.forma.controls['imie'].valueChanges.subscribe(
       (imie) => {
