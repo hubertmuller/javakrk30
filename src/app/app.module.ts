@@ -13,6 +13,7 @@ import { UsunComponent } from './usun/usun.component';
 import { EdytujComponent } from './edytuj/edytuj.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PodzielnaPipe } from './pipes/podzielna.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BladComponent,
     NawigacjaComponent,
     UsunComponent,
-    EdytujComponent
+    EdytujComponent,
+    PodzielnaPipe
   ],
   imports: [
     BrowserModule,

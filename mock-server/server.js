@@ -27,7 +27,7 @@ const server =  http.createServer(
                     "id": 18,
                     "imie": "Józefa",
                     "nazwisko" : "Glinska",
-                    "wiek": 18,
+                    "wiek": 19,
                     "plec": "k"
                 }
             ]
