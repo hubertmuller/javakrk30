@@ -1,0 +1,14 @@
+
+a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+a:hover {
+    background-color: rgb(101, 175, 113);
+}
+
+a::after, a::before {
+    content: '\00a0';
+}

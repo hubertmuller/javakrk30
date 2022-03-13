@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-nawigacja',
   templateUrl: './nawigacja.component.html',
-  styleUrls: ['./nawigacja.component.scss']
+  styleUrls: ['./nawigacja.component.scss', './nawigacja-linki.component.scss']
 })
 export class NawigacjaComponent implements OnInit {
 

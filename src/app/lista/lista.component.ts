@@ -5,7 +5,7 @@ import { ListaService } from '../lista.service';
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
-  styleUrls: ['./lista.component.scss']
+  styleUrls: ['./lista.component.scss', './../nawigacja/nawigacja-linki.component.scss']
 })
 export class ListaComponent implements OnInit {
 

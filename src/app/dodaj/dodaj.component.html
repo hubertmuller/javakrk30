@@ -8,13 +8,16 @@
     Zapisano dane z formularza. Dziekujemy!
 </div>
 <div *ngIf="!zapisujemy">
+
+    <!-- odkomentowac gdyby byla potrzeba sprawdzenia stanu fomularza
     <pre>{{ forma.value | json }}</pre>
+    -->
 
     <form [formGroup]="forma">
 
         <div>
             <label for="imieid">Imię</label>
-            <input formControlName="imie" id="imieid">
+            <input type="text" formControlName="imie" id="imieid">
             <ul *ngIf="forma.controls['imie'].errors">
                 <li *ngIf="forma.controls['imie'].errors['minlength']">Imie jest zbyt krótkie
                     (obecnie: {{forma.controls['imie'].errors['minlength'].actualLength}} znakow, 
@@ -31,19 +34,30 @@
 
         <div>
             <label for="nazwiskoid">Nazwisko</label>
-            <input formControlName="nazwisko" id="nazwiskoid"> 
+            <input type="text" formControlName="nazwisko" id="nazwiskoid"> 
         </div>
 
         <div>
-            <label for="kobid">Kobieta</label>
-            <input type="radio" value="k" formControlName="plec" id="kobid"> 
-            <label for="mezid">Mezczyzna</label>
-            <input type="radio" value="m" formControlName="plec" id="mezid"> 
+            <fieldset>
+                <legend>Płeć</legend>
+                <label for="kobid">Kobieta</label>
+                <input type="radio" value="k" formControlName="plec" id="kobid"> 
+                <label for="mezid">Mezczyzna</label>
+                <input type="radio" value="m" formControlName="plec" id="mezid"> 
+            </fieldset>
+            <ul *ngIf="forma.controls['plec'].errors">
+                <li *ngIf="forma.controls['plec'].errors['required']">Musisz wybrać płeć</li>
+            </ul>
         </div>
 
         <div>
             <label for="wiekid">Wiek</label>
-            <input formControlName="wiek" id="wiekid"> 
+            <input type="text" formControlName="wiek" id="wiekid"> 
+            <ul *ngIf="forma.controls['wiek'].errors">
+                <li *ngIf="forma.controls['wiek'].errors['max']">Wiek jest zbyt wysoki</li>
+                <li *ngIf="forma.controls['wiek'].errors['min']">Wiek jest zbyt niski</li>
+                <li *ngIf="forma.controls['wiek'].errors['required']">Musisz wpisać wiek</li>
+            </ul>
         </div>
 
         <div *ngIf="forma.valid">
