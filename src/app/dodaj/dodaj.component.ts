@@ -25,4 +25,9 @@ export class DodajComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public kasuj():void {
+    this.forma.controls['imie'].setValue('');
+    this.forma.controls['nazwisko'].setValue('');
+  }
+
 }
