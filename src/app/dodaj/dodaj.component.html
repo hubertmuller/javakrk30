@@ -57,6 +57,7 @@
                 <li *ngIf="forma.controls['wiek'].errors['max']">Wiek jest zbyt wysoki</li>
                 <li *ngIf="forma.controls['wiek'].errors['min']">Wiek jest zbyt niski</li>
                 <li *ngIf="forma.controls['wiek'].errors['required']">Musisz wpisać wiek</li>
+                <li *ngIf="forma.controls['wiek'].errors['parzysta']">Wiek musi być liczbą parzystą</li>
             </ul>
         </div>
 

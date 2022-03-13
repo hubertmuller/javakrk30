@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ListaService } from '../lista.service';
+import { parzysta } from '../validators/parzysta';
 import { Czlowiek } from './../interface/czlowiek';
 
 @Component({
@@ -26,7 +27,7 @@ export class DodajComponent implements OnInit, OnDestroy {
       updateOn: 'change'
     }),
     wiek: new FormControl('', {
-      validators: [Validators.min(0), Validators.max(150), Validators.required],
+      validators: [Validators.min(0), Validators.max(150), Validators.required, parzysta],
       updateOn: 'change'
     })
   });
