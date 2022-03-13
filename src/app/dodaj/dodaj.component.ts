@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListaService } from '../lista.service';
 
 @Component({
   selector: 'app-dodaj',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DodajComponent implements OnInit {
 
-  constructor() { }
+  constructor(private listaService: ListaService) { }
 
   ngOnInit(): void {
   }
