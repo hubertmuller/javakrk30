@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './edytuj.component.html',
   styleUrls: ['./edytuj.component.scss']
 })
-export class EdytujComponent implements OnInit, OnDestroy, OnChanges {
+export class EdytujComponent implements OnInit, OnDestroy {
   public toEdit = 0;
 
   constructor(private route: ActivatedRoute) { 
@@ -17,9 +17,7 @@ export class EdytujComponent implements OnInit, OnDestroy, OnChanges {
       console.log('chcemy edytowac id=' + this.toEdit);
     });
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('changes')
-  }
+
   ngOnDestroy(): void {
     console.log('ngOnDestroy');
   }
