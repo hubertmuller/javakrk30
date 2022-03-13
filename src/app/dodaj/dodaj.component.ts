@@ -33,6 +33,10 @@ export class DodajComponent implements OnInit, OnDestroy {
 
   private imieSub: Subscription;
 
+  public blad = false;
+  public zapisano = false;
+  public zapisujemy = false;
+
   constructor(private listaService: ListaService) { 
 
     this.imieSub = this.forma.controls['imie'].valueChanges.subscribe(
@@ -56,12 +60,20 @@ export class DodajComponent implements OnInit, OnDestroy {
       wiek: forma['wiek'].value, 
       plec: forma['plec'].value
     };
+    this.zapisujemy = true;
     this.listaService.addCzlowiek(czlowiek).subscribe(
       (_) => {
         console.log("udalo sie zapisac");
+        this.zapisujemy = false;
+        this.zapisano = true;
+        this.blad = false;
+        this.kasuj();
       },
       (error) => {
         console.log('zapis nieudany');
+        this.zapisujemy = false;
+        this.zapisano = false;
+        this.blad = true;
       }
     );
   }
@@ -84,6 +96,8 @@ export class DodajComponent implements OnInit, OnDestroy {
   public kasuj():void {
     this.forma.controls['imie'].setValue('');
     this.forma.controls['nazwisko'].setValue('');
+    this.forma.controls['wiek'].setValue(undefined);
+    this.forma.controls['plec'].setValue('');
   }
 
 }

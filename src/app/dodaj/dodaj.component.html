@@ -1,47 +1,58 @@
-<pre>{{ forma.value | json }}</pre>
+<div *ngIf="blad">
+    Wystapil blad! Sprobuj zapisac ponownie!
+</div>
+<div *ngIf="zapisujemy">
+    Zapisujemy dane...
+</div>
+<div *ngIf="zapisano">
+    Zapisano dane z formularza. Dziekujemy!
+</div>
+<div *ngIf="!zapisujemy">
+    <pre>{{ forma.value | json }}</pre>
 
-<form [formGroup]="forma">
+    <form [formGroup]="forma">
 
-    <div>
-        <label for="imieid">Imię</label>
-        <input formControlName="imie" id="imieid">
-        <ul *ngIf="forma.controls['imie'].errors">
-            <li *ngIf="forma.controls['imie'].errors['minlength']">Imie jest zbyt krótkie
-                (obecnie: {{forma.controls['imie'].errors['minlength'].actualLength}} znakow, 
-                a minimum to {{forma.controls['imie'].errors['minlength'].requiredLength}} znakow)
-            </li>
-            <li *ngIf="forma.controls['imie'].errors['maxlength']">Imie jest zbyt długie
-                (obecnie: {{forma.controls['imie'].errors['maxlength'].actualLength}} znakow, 
-                a maximum to {{forma.controls['imie'].errors['maxlength'].requiredLength}} znakow)
-            </li>
-            <li *ngIf="forma.controls['imie'].errors['required']">Imie wymagane
-            </li>
-        </ul>
-    </div>
+        <div>
+            <label for="imieid">Imię</label>
+            <input formControlName="imie" id="imieid">
+            <ul *ngIf="forma.controls['imie'].errors">
+                <li *ngIf="forma.controls['imie'].errors['minlength']">Imie jest zbyt krótkie
+                    (obecnie: {{forma.controls['imie'].errors['minlength'].actualLength}} znakow, 
+                    a minimum to {{forma.controls['imie'].errors['minlength'].requiredLength}} znakow)
+                </li>
+                <li *ngIf="forma.controls['imie'].errors['maxlength']">Imie jest zbyt długie
+                    (obecnie: {{forma.controls['imie'].errors['maxlength'].actualLength}} znakow, 
+                    a maximum to {{forma.controls['imie'].errors['maxlength'].requiredLength}} znakow)
+                </li>
+                <li *ngIf="forma.controls['imie'].errors['required']">Imie wymagane
+                </li>
+            </ul>
+        </div>
 
-    <div>
-        <label for="nazwiskoid">Nazwisko</label>
-        <input formControlName="nazwisko" id="nazwiskoid"> 
-    </div>
+        <div>
+            <label for="nazwiskoid">Nazwisko</label>
+            <input formControlName="nazwisko" id="nazwiskoid"> 
+        </div>
 
-    <div>
-        <label for="kobid">Kobieta</label>
-        <input type="radio" value="k" formControlName="plec" id="kobid"> 
-        <label for="mezid">Mezczyzna</label>
-        <input type="radio" value="m" formControlName="plec" id="mezid"> 
-    </div>
+        <div>
+            <label for="kobid">Kobieta</label>
+            <input type="radio" value="k" formControlName="plec" id="kobid"> 
+            <label for="mezid">Mezczyzna</label>
+            <input type="radio" value="m" formControlName="plec" id="mezid"> 
+        </div>
 
-    <div>
-        <label for="wiekid">Wiek</label>
-        <input formControlName="wiek" id="wiekid"> 
-    </div>
+        <div>
+            <label for="wiekid">Wiek</label>
+            <input formControlName="wiek" id="wiekid"> 
+        </div>
 
-    <div *ngIf="forma.valid">
-        <input type="button" (click)="wyslij()" value="Wyślij">
-    </div>
+        <div *ngIf="forma.valid">
+            <input type="button" (click)="wyslij()" value="Wyślij">
+        </div>
 
-    <div>
-        <input type="button" (click)="kasuj()" value="Kasuj">
-    </div>
+        <div>
+            <input type="button" (click)="kasuj()" value="Kasuj">
+        </div>
 
-</form>
+    </form>
+</div>
