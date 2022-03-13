@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { ListaService } from '../lista.service';
 
 @Component({
@@ -7,7 +9,7 @@ import { ListaService } from '../lista.service';
   templateUrl: './dodaj.component.html',
   styleUrls: ['./dodaj.component.scss']
 })
-export class DodajComponent implements OnInit {
+export class DodajComponent implements OnInit, OnDestroy {
 
   public forma: FormGroup = new FormGroup({
     imie: new FormControl('', {
@@ -17,10 +19,45 @@ export class DodajComponent implements OnInit {
     nazwisko: new FormControl('', {
       validators: [Validators.minLength(3)],
       updateOn: 'change'
+    }),
+    plec: new FormControl('', {
+      validators: [Validators.required],
+      updateOn: 'change'
+    }),
+    wiek: new FormControl('', {
+      validators: [Validators.min(0), Validators.max(150)],
+      updateOn: 'change'
     })
   });
 
-  constructor(private listaService: ListaService) { }
+  private imieSub: Subscription;
+
+  constructor(private listaService: ListaService) { 
+
+    this.imieSub = this.forma.controls['imie'].valueChanges.subscribe(
+      (imie) => {
+        console.log('zmienila sie wartosc imienia'+ imie);
+        this.forma.controls['plec'].setValue(this.rozpoznajPlec(imie));
+      }
+    )
+
+  }
+
+  ngOnDestroy(): void {
+    this.imieSub.unsubscribe();
+  }
+  
+  rozpoznajPlec(imie: string): string {
+    let plec = "";
+    const i = imie.toLowerCase();
+    if (i === "adam") {
+      plec = 'm';
+    }
+    if (i === "agata") {
+      plec = 'k';
+    }
+    return plec;
+  }
 
   ngOnInit(): void {
   }

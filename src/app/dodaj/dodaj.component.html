@@ -13,6 +13,18 @@
     </div>
 
     <div>
+        <label for="kobid">Kobieta</label>
+        <input type="radio" value="k" formControlName="plec" id="kobid"> 
+        <label for="mezid">Mezczyzna</label>
+        <input type="radio" value="m" formControlName="plec" id="mezid"> 
+    </div>
+
+    <div>
+        <label for="wiekid">Wiek</label>
+        <input formControlName="wiek" id="wiekid"> 
+    </div>
+
+    <div>
         <input type="button" (click)="kasuj()" value="Kasuj">
     </div>
 
