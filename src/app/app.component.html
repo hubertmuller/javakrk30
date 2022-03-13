@@ -1,5 +1,5 @@
 <div>
   Witaj w {{title}}!
-  <app-nawigacja></app-nawigacja>
+  <app-nawigacja [linki]="[{etykieta: 'test', adres: ['/usun', '3']},{etykieta: 'test2', adres: ['/dodaj']}]"></app-nawigacja>
   <router-outlet></router-outlet>
 </div>

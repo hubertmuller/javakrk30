@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Linki } from '../interface/linki';
 
 @Component({
   selector: 'app-nawigacja',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NawigacjaComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  public linki: Linki[] = [];
+
+  constructor() { 
+    console.log(this.linki);
+  }
 
   ngOnInit(): void {
+    console.log(this.linki);
   }
 
 }

@@ -1,3 +1,5 @@
 <div>
-[ <a [routerLink]="['lista']">lista</a> ] [ <a [routerLink]="['dodaj']">dodawanie</a> ]
+<a [routerLink]="['lista']">lista</a> <a [routerLink]="['dodaj']">dodawanie</a>
+<!-- linki z parametru linki -->
+<a *ngFor="let link of linki" [routerLink]="link.adres">{{link.etykieta}}</a>
 </div>
